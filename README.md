@@ -21,4 +21,5 @@
 <img width="1471" height="511" alt="image" src="https://github.com/user-attachments/assets/997b054d-0d55-461a-a0d6-ee5dcc3e31c1" />
 
 这是我验证过能够直接在服务器运行组建的一个作业的标准格式，我接下来给大家一行一行解读分别是什么意思
+ff
 
