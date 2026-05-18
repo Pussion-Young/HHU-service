@@ -1,4 +1,4 @@
-# HHU-service
+<img width="861" height="45" alt="image" src="https://github.com/user-attachments/assets/f3cd6eee-faf2-4fe8-869b-bf343a3ec2aa" /># HHU-service
 现在来教大家如何使用已经安装在matiej服务器里面的momask插件
 
 <img width="474" height="24" alt="image" src="https://github.com/user-attachments/assets/62654c5f-7efd-48df-baaa-552a1f520cbc" />
@@ -21,5 +21,43 @@
 <img width="1471" height="511" alt="image" src="https://github.com/user-attachments/assets/997b054d-0d55-461a-a0d6-ee5dcc3e31c1" />
 
 这是我验证过能够直接在服务器运行组建的一个作业的标准格式，我接下来给大家一行一行解读分别是什么意思
-ff
+
+<img width="1015" height="401" alt="image" src="https://github.com/user-attachments/assets/feaa4611-2608-4f52-a9ab-ae07dc4955a1" />
+ 从第二行看起，momask_no_video就是作业的名字，在记事本里面可以随意更改，不会影响其他。
+ 第三行，hgpu4，就是你选择学校的哪一个服务器
+ <img width="1701" height="505" alt="image" src="https://github.com/user-attachments/assets/b4b8fd3b-6a2b-400b-b11c-863030441078" />
+这是学校的服务器资源，不同的服务器对应着不同的算力和收费，根据需求选择，使用这个组件我选择了hgpu4，大家可以默认不该这个
+然后第四行#SBATCH --gres=gpu:1就表明申请使用gpu的数量为1
+第五行和第六行很重要#SBATCH --error=%J.err
+#SBATCH --output=%J.out， .err 的意思是生成错误的日志，因为在终端提交作业的时候我们是看不到任何反馈的，只有等作业跑完之后我们单独查看.err这个日志的时候才能发现有没有报错，.out就是对运行的一些相关参数的反馈，不重要可不查看。
+module load anaconda3/2023.09
+module load cuda/11.0 ，这两个就代表着我们使用了服务器的哪些工具，大家保持默认就行，因为momask这个组件目前用这两个工具可以运行
+source activate momask 这个就是激活我们创造的虚拟环境，我已经为大家创建好了，大家直接使用指令激活
+python gen_t2m.py --gpu_id 0 --ext my_first_motion --text_prompt "The person holds its left foot with its left hand, puts its right foot up and left hand up too."系欸想俺俩看到这句话的内容，prompt引号的内容就是我们的提示词，momask是一个根据提示词生成相关动作的组件，那么大家在这里用英文描述自己想要生成的动作即可，也就是说，括号里面的内容要根据自己的需求进行修改，然后保存该文件。启动终端上传作业。
+上传作业的指令为：sbatch 文件名.slurm
+比如说我的这个我就输入sbatch momask.slurm
+上传之后，学校服务器会自动给你分配编号，例如：
+
+<img width="632" height="44" alt="image" src="https://github.com/user-attachments/assets/6eddb38f-9fbf-477a-b0f0-914e66b062ed" />
+最前面那一串数字就是编号，然后我们可以输入sq查看作业的状态。
+
+<img width="854" height="61" alt="image" src="https://github.com/user-attachments/assets/45f3544d-c1cc-48f3-94fa-d4dc98c6af0a" />
+比如现在，就说明作业在排队当中，因为学校服务器数量有限，别人在你前面使用了服务器并把它占满了你提交的作业就只能进入排队阶段
+
+<img width="854" height="61" alt="image" src="https://github.com/user-attachments/assets/55522e78-a223-4b7f-9c30-434256ec08d9" />
+这张照片就表示作业已经开始进行，并且已经进行了43秒，
+
+<img width="861" height="45" alt="image" src="https://github.com/user-attachments/assets/d2b77c32-27ec-4133-95c3-39ca92e7910d" />
+当一段时间之后我们再一次sq查看作业状态，发现这种情况就表明作业已经批改完成并发回来给你，大家就可以用一开始的作业编号查看自己提交的作业是否有报错。比如这次我们的作业编号是177433 ，
+我们就在终端输入cat 177433.err
+
+有些时候再交作业的时候提示你说有格式编码错误，则需要先转换格式，dos2unix momask.slurm
+然后再提交作业，sbatch momask.slurm
+
+<img width="865" height="61" alt="image" src="https://github.com/user-attachments/assets/2ef2d363-10f4-4fb3-8025-2c79a676ed35" />
+这次运行不知道为什么有两个err，但是我打开generation发现作业最终的目的：生成相应动作的bvh文件已成功生成
+<img width="467" height="181" alt="image" src="https://github.com/user-attachments/assets/139e41b6-0464-43db-828c-bb795659c277" />
+<img width="472" height="222" alt="image" src="https://github.com/user-attachments/assets/aa95b03b-161f-47e6-9146-1c62e9e0c9b2" />
+暂时先忽视一下这两个err，正常来说查看.err日志的时候应该是0输出，但是我已经成功生成了bvh文件，接下来就是将bvh文件导入blender检查是否成功的一步了。这一步就交给大家自己完成了。对了要注意，每一次我们提交作业生成新的bvh文件时，都会把之前的覆盖掉。
+
 
