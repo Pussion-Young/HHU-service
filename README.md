@@ -1,1 +1,1 @@
-# HHU-service
+现在来教大家如何使用已经安装在matiej服务器里面的momask插件# HHU-service
