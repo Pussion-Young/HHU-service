@@ -10,50 +10,44 @@
 
   
 # 二.使用Xshell连接校园主机，并使用Xftp传输文件
-1.打开Xshell（注意：将Xshell窗口最大化，否则可能存在连接失败的可能），不需要注册和登录账号直接跳过进入新建会话和连接的界面。  
-点击右上方文件，点击新建，打开如下窗口。  
+### 1.打开Xshell（注意：将Xshell窗口最大化，否则可能存在连接失败的可能），不需要注册和登录账号直接跳过进入新建会话和连接的界面。  
+在左上方找到文件并点击，点击新建，打开如下窗口。  
+#### 名称自拟 ，主机输入：**matiej@ hpcbh.hhu.edu.cn** ，然后点击连接。 
 <img width="1005" height="845" alt="image" src="https://github.com/user-attachments/assets/86095d13-2661-42aa-af08-1dc1acebfa11" />  
-名称自拟  
-主机输入：matiej@ hpcbh.hhu.edu.cn  
-然后点击连接。  
-连接后后进入如下窗口：  
-<img width="675" height="355" alt="image" src="https://github.com/user-attachments/assets/e770529b-1f2d-4888-853c-6f44ad24c83e" />  
-图标为红色代表连接失败。这时候在上方这个位置重新输入我们的主机并按下Enter建，  
-<img width="772" height="417" alt="1782996846535" src="https://github.com/user-attachments/assets/4c3e43ed-84ae-41aa-9711-0cf46bf03f74" />  
-显示连接成功，会弹出相应窗口。如图：  
+连接后进入如下窗口： 
+看到小窗口图标为红色代表连接失败，这时候在上方这个位置重新输入我们的主机并按下Enter建。  
+
+<img width="675" height="355" alt="image" src="https://github.com/user-attachments/assets/e770529b-1f2d-4888-853c-6f44ad24c83e" />    
+<img width="772" height="417" alt="1782996846535" src="https://github.com/user-attachments/assets/4c3e43ed-84ae-41aa-9711-0cf46bf03f74" />   
+
+显示连接成功，弹出如下窗口：    
+### 用户名为matiej，密码格式：“静态密码”“+”“动态验证码”，请注意不要漏掉其中的+号。  
+
 <img width="1296" height="627" alt="image" src="https://github.com/user-attachments/assets/0e8add3a-d995-46b6-ace0-0f621111c901" />  
 <img width="791" height="661" alt="image" src="https://github.com/user-attachments/assets/578cf278-f62d-415d-b7ff-15885e8026a6" />  
 
+### 关于动态验证码的获取方法：
+手机下载app Google Authenticator，绑定老师账号。  
+<img width="317" height="363" alt="image" src="https://github.com/user-attachments/assets/e3b5793f-5aac-4c9c-891f-62ff0f151b22" />  
+动态密码为实时更新：  
+<img width="1179" height="2556" alt="image" src="https://github.com/user-attachments/assets/59cc9a32-dfc5-4a77-a294-6470cb59e1bf" />
 
-账号名则为matiej，密码格式：“静态密码”“+”“动态验证码”，请注意不要漏掉其中的+号。  
-连接成功后会自动进入以下画面。  
+连接成功后会自动进入以下画面，根据以下图片依次选择  
 <img width="981" height="562" alt="image" src="https://github.com/user-attachments/assets/81acbc2c-d5aa-4506-b0f6-d791b2f85965" />  
 <img width="880" height="535" alt="image" src="https://github.com/user-attachments/assets/21f9870d-1bf3-4fe7-ac13-84b260804f5b" />  
-<img width="741" height="817" alt="c1fef7bb59da9413f9a0681af8969f3" src="https://github.com/user-attachments/assets/247e76b4-d9ea-4fb5-a206-c5ce48d7042e" />  
+终端显示连接成功。  
+
+<img width="741" height="817" alt="c1fef7bb59da9413f9a0681af8969f3" src="https://github.com/user-attachments/assets/247e76b4-d9ea-4fb5-a206-c5ce48d7042e" />   
+
+### 2.连接Xftp
 找到上方用来传输文件的Xftp并点击，程序会自动打开Xftp并自动加载文件传输界面。  
-<img width="845" height="340" alt="1782997399723" src="https://github.com/user-attachments/assets/89cf05d5-7101-4cca-a4e8-7fdd6efabe60" />  
-然后就可以进入Xftp进行自己的电脑文件与学校电脑文件传输的界面啦。这个时候如果需要再次输入密码的话就再输一次。  
+<img width="774" height="157" alt="1782998931759" src="https://github.com/user-attachments/assets/b6ec3483-74aa-47ff-940d-e8c2bbb321e1" />
+
+然后就可以进行文件传输啦。这个时候如果需要再次输入密码的话就再输一次。  
 <img width="1244" height="782" alt="image" src="https://github.com/user-attachments/assets/ecdda089-3c26-40e0-a7c1-5ea022d106bd" />  
+蓝色区域为自己的电脑文件。红色区域为学校服务器的电脑文件，在红色区域找到matiej文件夹并点击打开。  
+
 <img width="1242" height="776" alt="image" src="https://github.com/user-attachments/assets/51f35791-7535-49d2-bd17-3987606dbe2e" />  
-蓝色区域为自己的电脑文件。红色区域为学校服务器的电脑文件，找到matiej文件夹
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-### 2.新建会话，在SSH输入账号名@ hpcbh.hhu.edu.cn，账号名则为matiej，密码格式：“静态密码”“+”“动态验证码”，请注意不要漏掉其中的+号。
-
-3.终端显示连接成功之后，在上方窗口找到Xftp的图标，点击进入，然后也是不需要注册和登录账号直接进入，这时候成功连接上就会出现以下这个界面。
 
 
 # 三.找到插件位置并新建作业
