@@ -30,7 +30,8 @@
 手机下载app Google Authenticator，绑定老师账号。  
 <img width="317" height="363" alt="image" src="https://github.com/user-attachments/assets/e3b5793f-5aac-4c9c-891f-62ff0f151b22" />  
 动态密码为实时更新：  
-<img width="1179" height="2556" alt="image" src="https://github.com/user-attachments/assets/59cc9a32-dfc5-4a77-a294-6470cb59e1bf" />
+<img width="1179" height="801" alt="image" src="https://github.com/user-attachments/assets/e9023e8c-87fe-4289-8331-46507c59f9ba" />
+
 
 连接成功后会自动进入以下画面，根据以下图片依次选择  
 <img width="981" height="562" alt="image" src="https://github.com/user-attachments/assets/81acbc2c-d5aa-4506-b0f6-d791b2f85965" />  
@@ -89,8 +90,25 @@
 
 这是我验证过能够运行momask插件的一个作业的标准格式，我接下来给大家一行一行解读分别是什么意思。
 
-<img width="1471" height="511" alt="image" src="https://github.com/user-attachments/assets/997b054d-0d55-461a-a0d6-ee5dcc3e31c1" />   
+<img width="1471" height="511" alt="image" src="https://github.com/user-attachments/assets/997b054d-0d55-461a-a0d6-ee5dcc3e31c1" />  
+``` #!/bin/bash
+#SBATCH -J momask_no_video
+#SBATCH -p hgpu4
+#SBATCH --gres=gpu:1
+#SBATCH --error=%J.err
+#SBATCH --output=%J.out
+#SBATCH --time=01:00:00
 
+module load anaconda3/2023.09
+module load cuda/11.0
+source activate momask
+
+cd /data1/home/matiej/momask-codes-main/
+
+python gen_t2m.py --gpu_id 0 --ext my_first_motion --text_prompt "The person holds its left foot with its left hand, puts its right foot up and left hand up too."
+
+echo "动作数据生成完成, 结果目录: ./results/my_first_motion/"
+scontrol show job $SLURM_JOBID ```
 
  1)从第二行看起，momask_no_video就是给上交的作业起的名字，在记事本里面可以随意更改，目前看来这个起名不会对其他内容造成任何影响。  
  
